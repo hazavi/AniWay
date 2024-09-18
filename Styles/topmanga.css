@@ -1,0 +1,127 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; /* Add padding to ensure content isn't flush with the screen edge */
+}
+
+/* Header style */
+h1 {
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Manga container styles */
+.manga-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Manga item styles */
+.manga-item {
+    width: calc(15% - 30px); /* Set initial width */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.manga-item img {
+    width: 100%;
+    height: auto;
+}
+
+.manga-item h2 {
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.manga-item h4 {
+    padding: 10px;
+    font-size: 15px;
+    color: #333;
+}
+
+.manga-item:hover {
+    transform: scale(1.05);
+}
+
+/* Pagination styles */
+.pagination {
+    display: inline-block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination button {
+    color: #000;
+    border: none;
+    padding: 12px 17px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.pagination button:hover {
+    background-color: #a659fd;
+    color: #000;
+}
+
+.pagination .active {
+    background-color: #a659fd;
+    font-weight: bolder;
+}
+
+/* Responsive Design */
+@media (max-width: 1700px) {
+    .manga-item {
+        width: calc(15% - 30px); 
+    }
+}
+
+@media (max-width: 1300px) {
+    .manga-item {
+        width: calc(20% - 30px); 
+    }
+}
+
+@media (max-width: 1024px) {
+    .manga-item {
+        width: calc(25% - 30px); 
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 768px) {
+    .manga-item {
+        width: calc(33.33% - 30px); 
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+    .manga-item {
+        width: calc(33.33% - 30px); 
+    }
+
+    /* Adjust body padding for smaller screens */
+    body {
+        padding: 10px;
+    }
+}
