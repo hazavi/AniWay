@@ -6,7 +6,6 @@ async function fetchTopAnimes(page = 1) {
     try {
         const response = await fetch(`${URL}?page=${page}&limit=${perPage}`);
         const result = await response.json();
-        console.log(result.data);
         displayTopAnimes(result);
         setupPagination(result.pagination);
     } catch (error) {
@@ -27,24 +26,55 @@ function displayTopAnimes(result) {
             window.location.href = `AnimeInfo.html?id=${anime.mal_id}`;
         });
 
+        // Rank element
+        const rankElement = document.createElement('div');
+        rankElement.classList.add('anime-rank');
+        rankElement.textContent = `#${anime.rank}`;
+        animeElement.appendChild(rankElement);
+
+        // Image element
         const image = document.createElement('img');
         image.src = anime.images.jpg.large_image_url;
         image.alt = anime.title;
+        image.title = anime.title; // Tooltip with full title on hover
 
+        // Custom tooltip
+        const tooltip = document.createElement('div');
+        tooltip.classList.add('custom-tooltip');
+        tooltip.textContent = anime.title;
+
+        // Show tooltip on hover
+        image.addEventListener('mouseenter', () => {
+            tooltip.style.display = 'block';
+        });
+        image.addEventListener('mouseleave', () => {
+            tooltip.style.display = 'none';
+        });
+
+        // Title element (with truncated text and tooltip on hover)
         const title = document.createElement('h2');
         title.textContent = anime.title;
-
-        const score = document.createElement('h4');
-        score.textContent = `★ ${anime.score}`;
-
-
+        title.title = anime.title; // Tooltip with full title on hover
 
         animeElement.appendChild(image);
+        animeElement.appendChild(tooltip);
         animeElement.appendChild(title);
-        animeElement.appendChild(score);
         container.appendChild(animeElement);
+
+        // Popup for genres, year, and synopsis
+        const popup = document.createElement('div');
+        popup.classList.add('anime-popup');
+        popup.innerHTML = `
+            <p><strong>${anime.genres.map(genre => genre.name).join(', ')}</strong></p>
+            <p><strong> ${anime.aired.prop.from.year}</strong></p>
+            <p><strong></strong> ${anime.synopsis }</p>
+        `;
+        animeElement.appendChild(popup);
+
+
     });
 }
+
 
 function setupPagination(pagination) {
     const paginationContainer = document.querySelector('.pagination');
@@ -55,12 +85,34 @@ function setupPagination(pagination) {
     // Previous button
     if (currentPage > 1) {
         const prevButton = document.createElement('button');
-        prevButton.textContent = '<';
+        prevButton.textContent = 'Prev';
         prevButton.addEventListener('click', () => {
             currentPage--;
             fetchTopAnimes(currentPage);
         });
         paginationContainer.appendChild(prevButton);
+
+
+
+        // Add ellipsis if there's more pages after 1
+        if (currentPage > 3) {
+
+            // Show page number 1
+            const firstButton = document.createElement('button');
+            firstButton.textContent = '1';
+            firstButton.classList.add('page-button');
+            firstButton.addEventListener('click', () => {
+                currentPage = 1;
+                fetchTopAnimes(currentPage);
+            });
+            paginationContainer.appendChild(firstButton);
+
+            const ellipsis = document.createElement('span');
+            ellipsis.textContent = '...';
+            paginationContainer.appendChild(ellipsis);
+        }
+
+        
     }
 
     // Page numbers
@@ -89,10 +141,28 @@ function setupPagination(pagination) {
         paginationContainer.appendChild(pageButton);
     }
 
+    // Ellipses and last page button
+    if (endPage < last_visible_page) {
+        const ellipsis = document.createElement('span');
+        ellipsis.textContent = '...';
+        ellipsis.disabled = true;
+
+        paginationContainer.appendChild(ellipsis);
+        
+        const lastButton = document.createElement('button');
+        lastButton.textContent = last_visible_page;
+        lastButton.classList.add('page-button');
+        lastButton.addEventListener('click', () => {
+            currentPage = last_visible_page;
+            fetchTopAnimes(currentPage);
+        });
+        paginationContainer.appendChild(lastButton);
+    }
+
     // Next button
     if (has_next_page) {
         const nextButton = document.createElement('button');
-        nextButton.textContent = '>';
+        nextButton.textContent = 'Next';
         nextButton.addEventListener('click', () => {
             currentPage++;
             fetchTopAnimes(currentPage);
@@ -100,5 +170,7 @@ function setupPagination(pagination) {
         paginationContainer.appendChild(nextButton);
     }
 }
+
+
 
 fetchTopAnimes();

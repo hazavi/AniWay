@@ -1,0 +1,18 @@
+/* Genre container styling */
+.genres-container {
+    display: flex;
+    gap: 5px;
+    justify-content: center; /* Center the genre items */
+    margin-bottom: 10px;;
+}
+
+/* Genre item styling */
+.anime-genres {
+    font-size: 0.7rem;
+    color: #000;
+    background-color: #f0f0f0;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 5px 10px;
+
+}
