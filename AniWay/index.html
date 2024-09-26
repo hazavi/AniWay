@@ -4,24 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Styles/index.css">
-
     <title>Home</title>
-
 </head>
 <body>
     <div id="navbar"></div>
 
+    <div class="main-container">
+        <!-- Main content container -->
+        <div class="main-content">
+            <h3>Schedules</h3>
+            <!-- Horizontal scrollable schedules container -->
+            <div class="scroll-controls">
+                <div class="scroll-left"><</div>
+                <div class="schedules-container">
+                    <!-- Your scrollable items here -->
+                </div>
+                <div class="scroll-right">></div>
+            </div>
+            
+        </div>
 
-  
-
+        <!-- Right sidebar container -->
+        <div class="right-sidebar">
+            <div class="season-now-container"></div>
+            <div class="season-upcoming-container"></div>
+        </div>
+    </div>
 
     <script src="/navbar/navbarLoader.js"></script>
-
     <script src="/APIs/Schedules.js"></script>
-    <script src="/APIs/Sample.js"></script>
-    <script src="/APIs/SeasonNow.js"></script>
-
-
+    <script src="/APIs/SidebarSeasonUpcoming.js"></script>
+    <script src="/APIs/SidebarSeasonNow.js"></script>
+    
 </body>
 </html>
-

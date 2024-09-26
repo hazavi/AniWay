@@ -2,6 +2,7 @@ const URL = 'https://api.jikan.moe/v4/top/anime';
 let currentPage = 1;
 const perPage = 24; // Number of animes per page: max 25
 
+// Function to fetch the top animes for a specific page
 async function fetchTopAnimes(page = 1) {
     try {
         const response = await fetch(`${URL}?page=${page}&limit=${perPage}`);
@@ -13,6 +14,7 @@ async function fetchTopAnimes(page = 1) {
     }
 }
 
+// Function to display the top animes
 function displayTopAnimes(result) {
     const container = document.querySelector('.anime-container');
     container.innerHTML = ''; // Clear previous content
@@ -70,12 +72,10 @@ function displayTopAnimes(result) {
             <p><strong></strong> ${anime.synopsis }</p>
         `;
         animeElement.appendChild(popup);
-
-
     });
 }
 
-
+// Function to set up the pagination buttons
 function setupPagination(pagination) {
     const paginationContainer = document.querySelector('.pagination');
     paginationContainer.innerHTML = ''; // Clear previous pagination
@@ -87,23 +87,17 @@ function setupPagination(pagination) {
         const prevButton = document.createElement('button');
         prevButton.textContent = 'Prev';
         prevButton.addEventListener('click', () => {
-            currentPage--;
-            fetchTopAnimes(currentPage);
+            changePage(currentPage - 1);
         });
         paginationContainer.appendChild(prevButton);
 
-
-
         // Add ellipsis if there's more pages after 1
         if (currentPage > 3) {
-
-            // Show page number 1
             const firstButton = document.createElement('button');
             firstButton.textContent = '1';
             firstButton.classList.add('page-button');
             firstButton.addEventListener('click', () => {
-                currentPage = 1;
-                fetchTopAnimes(currentPage);
+                changePage(1);
             });
             paginationContainer.appendChild(firstButton);
 
@@ -111,8 +105,6 @@ function setupPagination(pagination) {
             ellipsis.textContent = '...';
             paginationContainer.appendChild(ellipsis);
         }
-
-        
     }
 
     // Page numbers
@@ -135,8 +127,7 @@ function setupPagination(pagination) {
             pageButton.classList.add('active');
         }
         pageButton.addEventListener('click', () => {
-            currentPage = i;
-            fetchTopAnimes(currentPage);
+            changePage(i);
         });
         paginationContainer.appendChild(pageButton);
     }
@@ -145,16 +136,13 @@ function setupPagination(pagination) {
     if (endPage < last_visible_page) {
         const ellipsis = document.createElement('span');
         ellipsis.textContent = '...';
-        ellipsis.disabled = true;
-
         paginationContainer.appendChild(ellipsis);
-        
+
         const lastButton = document.createElement('button');
         lastButton.textContent = last_visible_page;
         lastButton.classList.add('page-button');
         lastButton.addEventListener('click', () => {
-            currentPage = last_visible_page;
-            fetchTopAnimes(currentPage);
+            changePage(last_visible_page);
         });
         paginationContainer.appendChild(lastButton);
     }
@@ -164,13 +152,33 @@ function setupPagination(pagination) {
         const nextButton = document.createElement('button');
         nextButton.textContent = 'Next';
         nextButton.addEventListener('click', () => {
-            currentPage++;
-            fetchTopAnimes(currentPage);
+            changePage(currentPage + 1);
         });
         paginationContainer.appendChild(nextButton);
     }
 }
 
+// Function to change the page and update the URL hash
+function changePage(page) {
+    currentPage = page;
+    window.location.hash = `page=${currentPage}`;
+    fetchTopAnimes(currentPage);
+}
 
+// Function to get the current page from the URL
+function getCurrentPageFromURL() {
+    const hash = window.location.hash;
+    if (hash) {
+        const pageMatch = hash.match(/page=(\d+)/);
+        if (pageMatch && pageMatch[1]) {
+            return parseInt(pageMatch[1], 10);
+        }
+    }
+    return 1; // Default to page 1 if no page is specified in the URL
+}
 
-fetchTopAnimes();
+// On page load, get the current page from the URL and fetch data
+window.addEventListener('DOMContentLoaded', () => {
+    currentPage = getCurrentPageFromURL();
+    fetchTopAnimes(currentPage);
+});
