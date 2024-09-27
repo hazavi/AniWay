@@ -1,19 +1,19 @@
-async function fetchAllSeasonNow() {
-    const URL = 'https://api.jikan.moe/v4/seasons/now';
+async function fetchAllSeasonUpcoming() {
+    const URL = 'https://api.jikan.moe/v4/seasons/upcoming';
 
     try {
         const response = await fetch(URL);
         const result = await response.json();
         console.log(result);
-        displayAllSeasonNow(result.data);
+        displayAllSeasonUpcoming(result.data);
     } catch (error) {
         console.error(error);
     }
 }
 
 
-function displayAllSeasonNow(animeList) {
-    const container = document.querySelector('.season-now-container');
+function displayAllSeasonUpcoming(animeList) {
+    const container = document.querySelector('.season-upcoming-container');
 
     animeList.forEach((anime, index) => {
         const animeElement = document.createElement('div');
@@ -54,14 +54,10 @@ function displayAllSeasonNow(animeList) {
 
         animeElement.appendChild(animeDetailsContainer);
 
-        // Add score
-        const score = document.createElement('span');
-        score.textContent = anime.score || 'N/A';
-        score.classList.add('score');
-        animeElement.appendChild(score);
+
 
         container.appendChild(animeElement);
     });
 }
 
-fetchAllSeasonNow();
+fetchAllSeasonUpcoming();
