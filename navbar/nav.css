@@ -106,38 +106,3 @@ nav a {
 nav a:hover {
     background-color: #ffaa0c;
 }
-/* Search container styles */
-
-
-#search-form {
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: #fff;
-}
-
-#search-input {
-    padding: 5px 10px;
-    font-size: 15px;
-    border: none;
-    outline: none;
-    width: 300px;
-}
-
-#search-input:focus {
-    border-color: #ffaa0c;
-}
-
-#search-form button {
-    padding: 12px 10px;
-    background-color: #ffaa0c;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#search-form button:hover {
-    background-color: #e29300;
-}

@@ -11,6 +11,7 @@ async function fetchSearchedAnime(animeName) {
     try {
         const response = await fetch(searchURL);
         const result = await response.json();
+        console.log(result);
         displaySearchedAnimes(result.data); // Display fetched anime
     } catch (error) {
         console.error(error);
@@ -19,7 +20,7 @@ async function fetchSearchedAnime(animeName) {
 
 // Function to display searched anime results
 function displaySearchedAnimes(animeList) {
-    const container = document.querySelector('.anime-container');
+    const container = document.querySelector('.display-container');
     container.innerHTML = ''; // Clear previous content
 
     animeList.forEach(anime => {
@@ -32,7 +33,7 @@ function displaySearchedAnimes(animeList) {
         });
 
         const image = document.createElement('img');
-        image.src = anime.images.jpg.image_url;
+        image.src = anime.images.jpg.large_image_url;
         image.alt = anime.title;
 
         const title = document.createElement('h2');

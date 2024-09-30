@@ -1,5 +1,5 @@
 
-async function fetchSample() {
+async function fetchRandomAnime() {
     const URL = 'https://api.jikan.moe/v4/recommendations/anime';
 
     try {
@@ -11,4 +11,4 @@ async function fetchSample() {
         console.error(error);
     }
 }
-fetchSample();
+fetchRandomAnime();
