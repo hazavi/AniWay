@@ -10,12 +10,12 @@ async function fetchMangaInfo(mangaId) {
     try {
         const response = await fetch(URL);
         const result = await response.json();
-        console.log(result);
+        console.log(result); // Check the API response
         
         displayMangaInfo(result);
 
     } catch (error) {
-        console.error(error);
+        console.error('Fetch error:', error);
     }
 }
 
@@ -33,89 +33,49 @@ function displayMangaInfo(manga) {
     }
 
     // Manga title and image
-    createElement('h2', 'manga-title', manga.data.title, container);
-    const image = createElement('img', 'manga-image', null, container);
-    image.src = manga.data.images.jpg.image_url;
+    const header = createElement('div', 'manga-header', null, container);
+    const image = createElement('img', 'manga-image', null, header);
+    image.src = manga.data.images.jpg.large_image_url;
     image.alt = manga.data.title;
+
+    const details = createElement('div', 'manga-details', null, header);
+    createElement('h2', 'manga-title', manga.data.title, details);
 
     // Titles section
     if (manga.data.titles?.length) {
-        const titlesContainer = createElement('div', 'titles-container', null, container);
-        createElement('h3', 'section-title', 'Titles', titlesContainer);
-
+        const titlesContainer = createElement('div', 'titles-container', null, details);
         manga.data.titles.forEach((title, index) => {
             createElement('span', 'title', title.title, titlesContainer);
-        
             if (index < manga.data.titles.length - 1) {
                 titlesContainer.appendChild(document.createTextNode(', '));
             }
         });
     }
-    
+    // Manga details
+    createElement('h3', 'manga-info', `#${manga.data.rank}`, details);
+    createElement('p', 'manga-info', `Type: ${manga.data.type || 'N/A'}`, details);
+    createElement('p', 'manga-info', `Chapters: ${manga.data.chapters || 'N/A'}`, details);
+    createElement('p', 'manga-info', `Volumes: ${manga.data.volumes || 'N/A'}`, details);
+    createElement('p', 'manga-info', `Published: ${manga.data.published?.string || 'N/A'}`, details);
+    createElement('p', 'manga-info', `Status: ${manga.data.status}`, details);
+
+    // Create genres section
+    if (manga.data.genres?.length) {
+        const genresContainer = createElement('div', 'genres-container', null, details);
+        manga.data.genres.forEach(genre => {
+            createElement('span', 'genre', genre.name, genresContainer);
+        });
+    }
+
     // Synopsis
     createElement('h3', 'section-title', 'Synopsis', container);
-    createElement('p', 'manga-synopsis', manga.data.synopsis, container);
+    createElement('p', 'manga-synopsis', manga.data.synopsis || 'No synopsis available.', container);
 
-    // Information section
-    createElement('h3', 'section-title', 'Information', container);
-    const infoContainer = createElement('div', 'info-container', null, container);
-
-    const infoItems = [
-        { text: `Type: ${manga.data.demographics[0].type}` },
-        { text: `Episodes: ${manga.data.episodes}` },
-        { text: `Chapters: ${manga.data.chapters}` },
-        { text: `Volumes: ${manga.data.volumes}` },
-        { text: `Status: ${manga.data.status}` },
-        { text: `Demographic: ${manga.data.demographics[0].name}` },
-        { text: `Published: ${manga.data.published.string}` }
-    ];
-
-    infoItems.forEach(info => createElement('p', 'info-item', info.text, infoContainer));
-
-    // Statistics section
-    createElement('h3', 'section-title', 'Statistics', container);
-    const statsContainer = createElement('div', 'stats-container', null, container);
-
-    const statisticItems = [
-        { text: `Rank: #${manga.data.rank}` },
-        { text: `Score: ${manga.data.score}` }
-    ];
-
-    statisticItems.forEach(stat => createElement('p', 'stat-item', stat.text, statsContainer));
-
-    
-
-    // Genres section
-    if (manga.data.genres?.length) {
-        const genresContainer = createElement('div', 'genres-container', null, container);
-        createElement('h3', 'section-title', 'Genres', genresContainer);
-
-        manga.data.genres.forEach((genre, index) => {
-            createElement('span', 'genre', genre.name, genresContainer);
-        
-            if (index < manga.data.genres.length - 1) {
-                genresContainer.appendChild(document.createTextNode(', '));
-            }
-        });
+    // Background section
+    if (manga.data.background) {
+        createElement('h3', 'section-title', 'Background', container);
+        createElement('p', 'manga-synopsis', manga.data.background, container);
     }
-
-    // Themes section
-    if (manga.data.themes?.length) {
-        const themesContainer = createElement('div', 'themes-container', null, container);
-        createElement('h3', 'section-title', 'Themes', themesContainer);
-
-        manga.data.themes.forEach((theme, index) => {
-            createElement('span', 'theme', theme.name, themesContainer);
-        
-            if (index < manga.data.themes.length - 1) {
-                themesContainer.appendChild(document.createTextNode(', '));
-            }
-        });
-    }
-
-     // background
-     createElement('h3', 'section-title', 'Background', container);
-     createElement('p', 'manga-synopsis', manga.data.background, container);   
 }
 
 // Get manga ID and fetch information

@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* Reset some default browser styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 500;
 }
 
 /* Set a background color and add some padding */
@@ -12,7 +16,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 60px; /* Add padding to avoid content being hidden under the fixed navbar */
+    padding-top: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+    
 }
 
 /* Navigation menu styles */
@@ -32,19 +39,29 @@ nav {
 /* Logo container */
 .logo-container {
     flex-shrink: 0; /* Prevent logo from shrinking */
-    margin: 0; 
+    margin-left: 200px;
     padding: 0;
+
+}
+.logo-link {
+    text-decoration: none;
+}
+
+.logo-link:hover {
+    text-decoration: none; 
 }
 
 .logo {
-    height: 35px; /* Adjust size of logo as needed */
-    width: auto; /* Maintain aspect ratio */
+    height: 40px; 
+    width: auto;
+    margin-top: 5px;
 }
+
 
 /* Navigation list */
 nav ul {
     display: flex;
-    justify-content: flex-start; /* Align items to the left */
+    justify-content: flex-start; 
     list-style-type: none;
     margin: 0;
     margin-left: 20px;
@@ -105,39 +122,4 @@ nav a {
 
 nav a:hover {
     background-color: #ffaa0c;
-}
-/* Search container styles */
-
-
-#search-form {
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: #fff;
-}
-
-#search-input {
-    padding: 5px 10px;
-    font-size: 15px;
-    border: none;
-    outline: none;
-    width: 300px;
-}
-
-#search-input:focus {
-    border-color: #ffaa0c;
-}
-
-#search-form button {
-    padding: 12px 10px;
-    background-color: #ffaa0c;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#search-form button:hover {
-    background-color: #e29300;
 }

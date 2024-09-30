@@ -58,7 +58,7 @@ function displayAnimeInfo(anime) {
     }
 
     // Anime details
-    createElement('p', 'anime-info', `#: ${anime.data.rank}`, details);
+    createElement('h3', 'anime-info', `#${anime.data.rank}`, details);
     createElement('p', 'anime-info', `Episodes: ${anime.data.episodes}`, details);
     createElement('p', 'anime-info', `Broadcast: ${anime.data.broadcast?.string || 'N/A'}`, details);
     createElement('p', 'anime-info', `Duration: ${anime.data.duration}`, details);

@@ -1,67 +1,54 @@
-async function fetchAllSeasonNow() {
+async function fetchSeasonNow() {
     const URL = 'https://api.jikan.moe/v4/seasons/now';
 
     try {
         const response = await fetch(URL);
         const result = await response.json();
-        console.log(result);
-        displayAllSeasonNow(result.data);
+        displaySeasonNow(result);
     } catch (error) {
         console.error(error);
     }
 }
 
-
-function displayAllSeasonNow(animeList) {
+function displaySeasonNow(result) {
     const container = document.querySelector('.season-now-container');
+    container.innerHTML = ''; // Clear previous content
 
-    animeList.forEach((anime, index) => {
+    // Limit to displaying 5 anime
+    result.data.forEach(anime => {
         const animeElement = document.createElement('div');
         animeElement.classList.add('season-item');
 
-        // Redirects to anime info page
-        animeElement.addEventListener('click', () => {
-            window.location.href = `AnimeInfo.html?id=${anime.mal_id}`;
-        });
-
-        // Add rank number
-        const rank = document.createElement('span');
-        rank.textContent = index + 1;
-        rank.classList.add('rank');
-        animeElement.appendChild(rank);
-
-        // Add anime image
+        // Add anime title and image
         const animeImage = document.createElement('img');
         animeImage.src = anime.images.jpg.image_url;
         animeImage.alt = anime.title;
-        animeImage.classList.add('anime-image');
+        animeImage.title = anime.title;
         animeElement.appendChild(animeImage);
 
-        const animeDetailsContainer = document.createElement('div');
-        animeDetailsContainer.classList.add('anime-details');
-
-        // Add anime title
         const animeTitle = document.createElement('div');
+        animeTitle.classList.add('season-item-title');
         animeTitle.textContent = anime.title;
-        animeTitle.classList.add('anime-title');
-        animeDetailsContainer.appendChild(animeTitle);
-
-        // Add anime info
-        const animeInfo = document.createElement('div');
-        animeInfo.textContent = `${anime.type} (${anime.episodes || '?'} eps) • ${anime.aired.prop.from.year || ''} `;
-        animeInfo.classList.add('anime-info');
-        animeDetailsContainer.appendChild(animeInfo);
-
-        animeElement.appendChild(animeDetailsContainer);
-
-        // Add score
-        const score = document.createElement('span');
-        score.textContent = anime.score || 'N/A';
-        score.classList.add('score');
-        animeElement.appendChild(score);
+        animeTitle.title = anime.title;
+        animeElement.appendChild(animeTitle);
 
         container.appendChild(animeElement);
     });
 }
 
-fetchAllSeasonNow();
+
+fetchSeasonNow();
+
+document.querySelector('.scroll-left').addEventListener('click', () => {
+    document.querySelector('.season-now-container').scrollBy({
+        left: -300,
+        behavior: 'smooth'
+    });
+});
+
+document.querySelector('.scroll-right').addEventListener('click', () => {
+    document.querySelector('.season-now-container').scrollBy({
+        left: 300,
+        behavior: 'smooth'
+    });
+});

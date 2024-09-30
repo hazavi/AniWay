@@ -36,9 +36,9 @@ body {
     margin-bottom: 20px; /* Add some space below the schedule section */
 }
 
-.schedules-container {
+.season-now-container {
     display: flex;
-    gap: 15px;
+    gap: 25px;
     padding: 10px; /* Reduced padding for a cleaner look */
     overflow-x: auto; /* Allow horizontal scrolling */
     scroll-behavior: smooth;
@@ -49,70 +49,96 @@ body {
 }
 
 /* Hide scrollbar */
-.schedules-container::-webkit-scrollbar {
+.season-now-container::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
 }
 
-/* Individual schedule item styling */
-.schedule-item {
-    min-width: 100px; 
+/* Individual Season item styling */
+.season-item {
+    width: 250px; /* Set a consistent width for all items */
     flex: 0 0 auto; /* Prevent items from shrinking */
     transition: transform 0.2s ease; /* Smooth scaling on hover */
+    text-align: center; /* Center align the text */
 }
 
-/* Hover effect for schedule items */
-.schedule-item:hover {
-    transform: scale(1.03); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+.season-item:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    cursor: pointer;
 }
 
-/* Schedule item title styling */
-.schedule-item-title {
+/* Image styling */
+.season-item img {
+    width: 100%; /* Ensure all images take up 100% of the container width */
+    height: 350px; /* Fixed height to ensure consistent image size */
+    object-fit: cover; /* Crop images if they exceed the container size */
+}
+
+/* Title container */
+.season-item-title {
+    width: 100%; /* Full width matching the image */
     font-size: 1em;
     font-weight: bold;
     color: #333; /* Darker text color for contrast */
-    margin-top: 5px; 
-    padding: 10px;
-}
-
-/* Schedule item time styling */
-.schedule-item-time {
-    font-size: 0.9em;
-    color: #666; /* Lighter color for secondary information */
+    margin-top: 5px;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis (...) for long titles */
 }
 
 /* Scroll control buttons */
 .scroll-left, .scroll-right {
-    background-color: rgba(39, 39, 39, 0.8);
+    background-color: rgba(39, 39, 39, 0.9); /* Slightly darker background for better contrast */
     color: white;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 45px; /* Slightly larger for better interaction */
+    height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    position: absolute; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    opacity: 0; 
-    transition: opacity 0.3s ease; 
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0; /* Hidden by default */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for a floating effect */
+    z-index: 10; /* Ensure the buttons are on top of the content */
 }
 
+/* Left control positioning */
 .scroll-left {
-    left: 10px; 
+    left: 10px;
 }
 
+/* Right control positioning */
 .scroll-right {
-    right: 10px; 
+    right: 10px;
 }
 
-/* Show buttons on hover over the controls */
+/* Hover effect for scroll controls */
+.scroll-left:hover, .scroll-right:hover {
+    background-color: rgba(39, 39, 39, 1); /* Fully opaque on hover */
+    transform: translateY(-50%) scale(1.2); /* Keep it centered while scaling */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow for hover effect */
+}
+
+/* Show scroll controls when the container is hovered */
 .scroll-controls:hover .scroll-left,
 .scroll-controls:hover .scroll-right {
-    opacity: 1; /* Show buttons on hover */
+    opacity: 1; /* Show the controls on hover */
 }
+/* Ensure the controls are vertically centered initially */
+.scroll-left, .scroll-right {
+    transform: translateY(-50%); /* Initial centering */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Active state (when being clicked) */
+.scroll-left:active, .scroll-right:active {
+    transform: translateY(-50%) scale(1.1); /* Keep it centered while scaling */
+}
+
 
 /* Responsive adjustments for schedule items */
 @media (max-width: 768px) {
@@ -136,13 +162,13 @@ body {
 }
 
 /* Season Now container styling */
-.season-now-container {
+.top-airing-container {
     background-color: white;
     padding-bottom: 15px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.season-now-header {
+.top-airing-header {
     background-color: #2e2e2e; 
     color: white;
     font-size: 1.1em;
@@ -157,7 +183,7 @@ body {
     text-align: center; 
 }
 /* Individual Season Now item */
-.season-item {
+.top-item {
     display: flex; 
     align-items: center;
     padding: 5px;
@@ -167,12 +193,12 @@ body {
 }
 
 /* Hover effect */
-.season-item:hover {
+.top-item:hover {
     background-color: #f5f5f5;
 }
 
 /* Rank styling */
-.season-item .rank {
+.top-item .rank {
     font-size: 1.3em;
     font-weight: bold;
     color: #333;
@@ -181,7 +207,7 @@ body {
 }
 
 /* Image styling */
-.season-item img {
+.top-item img {
     width: 50px; 
     height: 70px; 
     object-fit: cover;

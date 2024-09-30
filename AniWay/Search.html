@@ -4,15 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Styles/search.css">
-    <title>Search </title>
+    <title>Search</title>
 </head>
 <body>
-    
-    <div class="anime-container"></div>
-
-
     <div id="navbar"></div>
+
+    <!-- Search Form -->
+    <form id="search-form" class="search-form" action="/AniWay/Search.html" method="get">
+        <select id="search-type" name="type" class="search-select">
+            <option value="anime">Anime</option>
+            <option value="manga">Manga</option>
+        </select>
+
+        <input type="text" id="search-input" name="query" placeholder="Search anime or manga..." required>
+
+
+
+        <button type="submit" class="search-button">Search</button>
+    </form>
+
+    
+    <div class="display-container"></div>
+
+
     <script src="/navbar/navbarLoader.js"></script>
-    <script src="/APIs/SearchAnime.js"></script>
+    <script src="/APIs/Search.js"></script>
 </body>
 </html>

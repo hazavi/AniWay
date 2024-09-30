@@ -1,6 +1,6 @@
 
 async function fetchRandomAnime() {
-    const URL = 'https://api.jikan.moe/v4/random/anime';
+    const URL = 'https://api.jikan.moe/v4/recommendations/anime';
 
     try {
         const response = await fetch(URL);

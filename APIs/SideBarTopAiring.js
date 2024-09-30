@@ -1,29 +1,29 @@
-async function fetchSeasonNow() {
-    const URL = 'https://api.jikan.moe/v4/seasons/now';
+async function fetchTopAiring() {
+    const URL = 'https://api.jikan.moe/v4/top/anime?filter=airing';
 
     try {
         const response = await fetch(URL);
         const result = await response.json();
-        displaySeasonNow(result.data.slice(0, 5)); // Get only the first 5 animes
+        displayTopAiring(result.data.slice(0, 5)); // Get only the first 5 animes
     } catch (error) {
         console.error(error);
     }
 }
 
-function displaySeasonNow(animeList) {
-    const container = document.querySelector('.season-now-container');
+function displayTopAiring(animeList) {
+    const container = document.querySelector('.top-airing-container');
     container.innerHTML = ''; // Clear previous content
 
-    // Add "Season Now" header
+    // header
     const header = document.createElement('h3');
-    header.textContent = 'Season Now';
-    header.classList.add('season-now-header'); 
+    header.textContent = 'Top Airing';
+    header.classList.add('top-airing-header'); 
     container.appendChild(header);
 
     // Loop through the anime list and display each anime
     animeList.forEach((anime, index) => {
         const animeElement = document.createElement('div');
-        animeElement.classList.add('season-item');
+        animeElement.classList.add('top-item');
 
         // redirects to anime info page
         animeElement.addEventListener('click', () => {
@@ -68,10 +68,10 @@ function displaySeasonNow(animeList) {
 
     // Add the "More" button to redirect to the full Season Now page
     const moreButton = document.createElement('a');
-    moreButton.href = '/AniWay/season-now.html'; 
+    moreButton.href = '/AniWay/top-airing.html'; 
     moreButton.textContent = 'More';
     moreButton.classList.add('more-btn');
     container.appendChild(moreButton);
 }
 
-fetchSeasonNow();
+fetchTopAiring();

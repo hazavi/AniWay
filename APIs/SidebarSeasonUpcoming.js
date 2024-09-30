@@ -23,7 +23,7 @@ function displaySeasonUpcoming(animeList) {
     // Loop through the anime list and display each anime
     animeList.forEach((anime, index) => {
         const animeElement = document.createElement('div');
-        animeElement.classList.add('season-item');
+        animeElement.classList.add('top-item');
 
         // Redirect to anime info page
         animeElement.addEventListener('click', () => {

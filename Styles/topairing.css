@@ -8,7 +8,7 @@ body {
 
 
 /* Main container for Season Now */
-.season-now-container {
+.top-airing-container {
     max-width: 1200px;
     margin: 0 auto; 
     background-color: #ffffff; 
@@ -19,7 +19,7 @@ body {
 }
 
 /* Header for Season Now */
-.season-now-header {
+.top-airing-header {
     background-color: #2e2e2e; 
     color: white; 
     padding: 15px; 
@@ -29,7 +29,7 @@ body {
 }
 
 /* Individual Season Item */
-.season-item {
+.top-item {
     display: flex;
     align-items: center; 
     padding: 10px; 
@@ -37,7 +37,7 @@ body {
     transition: background-color 0.3s ease; 
 }
 
-.season-item:hover {
+.top-item:hover {
     background-color: #f1f1f1; 
     cursor: pointer;
 }
