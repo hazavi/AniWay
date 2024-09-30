@@ -1,21 +1,22 @@
-# AniWay
+# AniWay: Anime and Manga Website
 
-AniWay is a web application that provides comprehensive information on Animes and Mangas. It allows users to explore the top-ranking anime and manga, browse seasonal releases, and get detailed information on individual titles.
+Welcome to **AniWay**! This website is all about exploring **Animes** and **Mangas** in a simple and enjoyable way.
 
 ## Features
 
-- **Top Anime & Manga**: Browse top-ranked anime and manga with paginated views.
-- **Seasonal Anime**: Stay updated with the latest anime releases categorized by season.
-- **Anime & Manga Information**: Get detailed information about anime and manga, including genres, release year, synopsis, and more.
-- **Pagination**: Easily navigate through different pages of content with smooth pagination for both anime and manga sections.
-- **Responsive Design**: The website is designed to provide an optimal experience on a variety of devices, including desktops, tablets, and smartphones.
+- **Top Animes & Mangas**: See the top-rated anime and manga lists.
+- **Detailed Info Pages**: Click on any anime or manga to get more information.
+- **Search**: Easily find your favorite anime or manga.
+- **Anime Schedule**: Stay updated with the latest anime releases.
+- **Pagination**: Browse through the lists with smooth navigation.
+- **Responsive Design**: The website works well on both desktop and mobile devices.
+  
 
 ## Tech Stack
 
-- **HTML/CSS/JavaScript**: Core front-end technologies used to build the interface.
+- **HTML, CSS, JavaScript**: For the website structure and interactive features.
 - **Jikan API**: Data for anime and manga is fetched from the [Jikan API](https://jikan.moe/), a third-party API for MyAnimeList.
-- **Flexbox/Grid Layout**: Ensures a clean, responsive layout for anime and manga display.
-- **Pagination Logic**: Custom pagination system for seamless navigation through multiple pages of data.
+- **GitHub Pages**: Hosting the website.
 
 ## Installation
 
@@ -33,12 +34,12 @@ To run this project locally:
 
 3. Open `index.html` in your browser to view the application.
 
-## Usage
+## How to Use
 
-1. **Browse Top Anime/Manga**: Use the homepage to see top-rated anime and manga with rank, image, and synopsis displayed. Click on any title to view more details.
-2. **Seasonal Anime**: Navigate to the "Seasons" section to explore the latest anime releases by season.
-3. **Search Functionality**: Search for anime or manga by title using the search bar.
-4. **Pagination**: Use the pagination buttons to navigate between pages of content easily.
+1. **Home Page**: Start by browsing the top animes and mangas.
+2. **Search**: Use the search bar to quickly find specific titles.
+3. **Anime/Manga Info**: Click on any title for detailed information, including synopsis, genres, and more.
+4. **Schedule**: Check the anime schedule to know what’s coming next.
 
 ## Contribution
 
