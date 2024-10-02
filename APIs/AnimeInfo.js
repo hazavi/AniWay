@@ -58,11 +58,11 @@ function displayAnimeInfo(anime) {
     }
 
     // Anime details
-    createElement('h3', 'anime-info', `#${anime.data.rank}`, details);
-    createElement('p', 'anime-info', `Episodes: ${anime.data.episodes}`, details);
+    createElement('h3', 'anime-info', `#${anime.data.rank || 'N/A'}`, details);
+    createElement('p', 'anime-info', `Episodes: ${anime.data.episodes || 'N/A'}`, details);
     createElement('p', 'anime-info', `Broadcast: ${anime.data.broadcast?.string || 'N/A'}`, details);
-    createElement('p', 'anime-info', `Duration: ${anime.data.duration}`, details);
-    createElement('p', 'anime-info', `Status: ${anime.data.status}`, details);
+    createElement('p', 'anime-info', `Duration: ${anime.data.duration || 'N/A'}`, details);
+    createElement('p', 'anime-info', `Status: ${anime.data.status || 'N/A'}`, details);
 
 
     // Create genres section

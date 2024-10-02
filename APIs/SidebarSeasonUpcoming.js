@@ -1,7 +1,11 @@
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 async function fetchSeasonUpcoming() {
     const URL = 'https://api.jikan.moe/v4/seasons/upcoming';
 
     try {
+        await delay(1000); //  delay
         const response = await fetch(URL);
         const result = await response.json();
         displaySeasonUpcoming(result.data.slice(0, 5)); // Pass fetched data to display function

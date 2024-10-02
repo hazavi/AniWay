@@ -1,125 +1,133 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
-/* Reset some default browser styles */
+:root {
+    --primary: #8400ff;
+    --secondary: #ffaa0c;
+    --text-color: #ffffff;
+    --hover-color: #9933ff;
+    --background-color: #f0f2f5;
+    --max-width: 1300px;
+    --anime-image-width: 250px;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif; 
-    font-weight: 500;
 }
 
-/* Set a background color and add some padding */
 body {
-    background-color: #f0f2f5;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 60px;
+    background-color: var(--background-color);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 50px;
-    padding-left: 200px;
-    padding-right: 200px;
-    
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    border-radius: 8px;
 }
 
-/* Navigation menu styles */
+/*
+.main-container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+*/
 nav {
-    width: 100%;
-    background-color: #8400ff;
-    position: fixed; /* Fix the navbar to the top */
+    background-color: var(--primary);
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000; /* Ensure navbar is on top */
+    z-index: 1000;
     display: flex;
-    align-items: center; /* Center the items vertically */
-    padding: 0 20px; /* Add padding for spacing */
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Logo container */
+.nav-content {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
 .logo-container {
-    flex-shrink: 0; /* Prevent logo from shrinking */
-    margin-left: 200px;
-    padding: 0;
-
-}
-.logo-link {
-    text-decoration: none;
-}
-
-.logo-link:hover {
-    text-decoration: none; 
+    margin-right: 20px;
 }
 
 .logo {
-    height: 40px; 
+    height: 40px;
     width: auto;
-    margin-top: 5px;
 }
 
-
-/* Navigation list */
 nav ul {
     display: flex;
-    justify-content: flex-start; 
     list-style-type: none;
     margin: 0;
-    margin-left: 20px;
     padding: 0;
-    width: 100%; /* Ensure the list takes full width */
 }
 
-/* Dropdown and navigation link styles */
 nav li {
-    position: relative; /* Required for dropdown positioning */
+    position: relative;
 }
 
 nav li a, .dropbtn {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+    color: var(--text-color);
     text-decoration: none;
-    transition: background-color 0.1s ease; /* Smooth hover effect */
+    padding: 20px 15px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
 }
 
-li a:hover, .dropdown:hover .dropbtn {
-    background-color: #ffaa0c;
+nav li a:hover, .dropdown:hover .dropbtn {
+    background-color: var(--hover-color);
 }
 
-/* Dropdown styles */
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #8400ff;
+    background-color: var(--primary);
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     z-index: 1;
+    border-radius: 0 0 4px 4px;
 }
 
 .dropdown-content a {
-    color: rgb(255, 255, 255);
+    color: var(--text-color);
     padding: 12px 16px;
-    text-decoration: none;
     display: block;
     text-align: left;
+    font-size: 14px;
 }
 
 .dropdown-content a:hover {
-    background-color: #ffaa0c;
+    background-color: var(--hover-color);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    transition: background-color 0.1s ease, color 0.1s ease; 
-}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-container, .nav-content {
+        width: 95%;
+    }
 
-nav a:hover {
-    background-color: #ffaa0c;
+    nav li a, .dropbtn {
+        padding: 15px 10px;
+        font-size: 14px;
+    }
 }

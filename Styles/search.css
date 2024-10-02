@@ -12,7 +12,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
 }
 
 /* Form Container */
@@ -77,13 +76,14 @@ body {
 /* Search Button */
 .search-button {
     padding: 12px 10px;
-    background-color: #ffaa0c;
+    background-color: var(--secondary);
     color: #fff;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
 
 }
 
@@ -124,7 +124,6 @@ body {
 
 .anime-item:hover, .manga-item:hover {
     transform: scale(1.02);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive Styles */

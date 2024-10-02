@@ -1,4 +1,3 @@
-/* Basic reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +5,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Updated font for a cleaner look */
     background-color: #f4f4f4;
     padding: 20px;
     overflow-x: hidden;
@@ -17,80 +16,121 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    max-width: 100%; 
+    max-width: 100%;
     overflow-x: hidden; /* Prevent horizontal scroll */
+    margin-top: 20px;
 }
 
 /* Main content area styling */
 .main-content {
-    flex: 1; 
-    padding: 10px;
-    overflow-x: hidden; 
+    flex: 1;
+    padding: 5px;
+    overflow-x: hidden;
 }
 
-/* Scrollable schedules section */
-.scroll-controls {
-    display: flex;
-    align-items: center;
-    position: relative; 
-    margin-bottom: 20px; /* Add some space below the schedule section */
+/* Section headers */
+.header {
+    font-weight: bolder; /* Lighter boldness for a smoother appearance */
+    margin-bottom: 15px; /* Add more space below headers for better separation */
+    color: #333; /* Darker color for better readability */
+    text-transform: uppercase; /* Make headers stand out */
+    letter-spacing: 1px; /* Add spacing between letters for a modern look */
+    border-bottom: 2px solid var(--primary); /* Underline for emphasis */
+    padding-bottom: 5px; /* Space between text and underline */
+    display: flex; /* Flex display for alignment */
+    justify-content: space-between; /* Space out items */
 }
 
-.season-now-container {
+/* "More" button styling */
+.more-btn {
+    display: block;
+    text-align: right;
+    color: var(--primary);
+    text-decoration: none;
+    margin-top: 5px;
+    margin-right: 15px;
+}
+
+.more-btn:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+/* Schedule containers */
+.season-now-container,
+.most-popular-container {
     display: flex;
     gap: 25px;
-    padding: 10px; /* Reduced padding for a cleaner look */
-    overflow-x: auto; /* Allow horizontal scrolling */
+    padding: 10px;
+    overflow-x: auto;
     scroll-behavior: smooth;
-    max-width: 100%; /* Full width for scrolling within its container */
+    max-width: 100%;
     white-space: nowrap; /* Prevent items from wrapping */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 /* Hide scrollbar */
-.season-now-container::-webkit-scrollbar {
+.season-now-container::-webkit-scrollbar,
+.most-popular-container::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
 }
 
-/* Individual Season item styling */
-.season-item {
-    width: 250px; /* Set a consistent width for all items */
+/* Individual Season/Popular item styling */
+.season-item,
+.popular-item {
+    width: 180px;
     flex: 0 0 auto; /* Prevent items from shrinking */
-    transition: transform 0.2s ease; /* Smooth scaling on hover */
-    text-align: center; /* Center align the text */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
+    text-align: center;
 }
 
-.season-item:hover {
-    transform: scale(1.05); /* Scale up on hover */
+/* Hover effect */
+.season-item:hover,
+.popular-item:hover {
+    transform: scale(1.05);
     cursor: pointer;
 }
 
 /* Image styling */
-.season-item img {
-    width: 100%; /* Ensure all images take up 100% of the container width */
-    height: 350px; /* Fixed height to ensure consistent image size */
-    object-fit: cover; /* Crop images if they exceed the container size */
+.season-item img,
+.popular-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
 }
 
 /* Title container */
-.season-item-title {
-    width: 100%; /* Full width matching the image */
+.season-item-title,
+.popular-item-title {
+    width: 100%;
     font-size: 1em;
     font-weight: bold;
-    color: #333; /* Darker text color for contrast */
+    color: #333;
     margin-top: 5px;
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis (...) for long titles */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Scroll control buttons */
-.scroll-left, .scroll-right {
-    background-color: rgba(39, 39, 39, 0.9); /* Slightly darker background for better contrast */
+.scroll-controls {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px; /* Add some space below the schedule section */
+}
+
+.season-left,
+.season-right,
+.popular-left,
+.popular-right {
+    background-color: rgba(39, 39, 39, 0.9);
     color: white;
     border-radius: 50%;
-    width: 45px; /* Slightly larger for better interaction */
+    width: 45px;
     height: 45px;
     display: flex;
     justify-content: center;
@@ -100,197 +140,211 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    opacity: 0; /* Hidden by default */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for a floating effect */
-    z-index: 10; /* Ensure the buttons are on top of the content */
+    opacity: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
-/* Left control positioning */
-.scroll-left {
-    left: 10px;
+/* Left and Right control positioning */
+.season-left,
+.popular-left {
+    left: 0;
 }
-
-/* Right control positioning */
-.scroll-right {
-    right: 10px;
+.season-left svg,
+.popular-left svg {
+    margin-left: 8px;
+}
+.season-right,
+.popular-right {
+    right: 0;
 }
 
 /* Hover effect for scroll controls */
-.scroll-left:hover, .scroll-right:hover {
-    background-color: rgba(39, 39, 39, 1); /* Fully opaque on hover */
-    transform: translateY(-50%) scale(1.2); /* Keep it centered while scaling */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow for hover effect */
+.season-left:hover,
+.season-right:hover,
+.popular-left:hover,
+.popular-right:hover {
+    background-color: rgba(39, 39, 39, 1);
+    transform: translateY(-50%) scale(1.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Show scroll controls when the container is hovered */
-.scroll-controls:hover .scroll-left,
-.scroll-controls:hover .scroll-right {
-    opacity: 1; /* Show the controls on hover */
-}
-/* Ensure the controls are vertically centered initially */
-.scroll-left, .scroll-right {
-    transform: translateY(-50%); /* Initial centering */
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+.scroll-controls:hover .season-left,
+.scroll-controls:hover .season-right,
+.scroll-controls:hover .popular-left,
+.scroll-controls:hover .popular-right {
+    opacity: 1;
 }
 
-
-/* Active state (when being clicked) */
-.scroll-left:active, .scroll-right:active {
-    transform: translateY(-50%) scale(1.1); /* Keep it centered while scaling */
+/* Active state (when clicked) */
+.season-left:active,
+.season-right:active,
+.popular-left:active,
+.popular-right:active {
+    transform: translateY(-50%) scale(1.1);
 }
-
-
-/* Responsive adjustments for schedule items */
-@media (max-width: 768px) {
-    .schedules-container {
-        padding: 5px; /* Less padding on smaller screens */
-    }
-
-    .schedule-item {
-        min-width: 120px; /* Smaller minimum width on mobile */
-    }
-}
-
-
 
 /* Right sidebar styling */
 .right-sidebar {
-    width: 350px; 
-    padding: 15px;
-    overflow-y: auto; /* Allow scrolling for overflow */
-    height: calc(100vh - 100px); /* Take the full height of the viewport */
-}
-
-/* Season Now container styling */
-.top-airing-container {
-    background-color: white;
-    padding-bottom: 15px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.top-airing-header {
-    background-color: #2e2e2e; 
-    color: white;
-    font-size: 1.1em;
-    padding: 10px; 
-    text-align: center; 
-}
-.season-upcoming-header {
-    background-color: #2e2e2e; 
-    color: white;
-    font-size: 1.1em;
-    padding: 10px; 
-    text-align: center; 
-}
-/* Individual Season Now item */
-.top-item {
-    display: flex; 
-    align-items: center;
+    width: 300px;
     padding: 5px;
+    overflow-y: auto;
+    height: calc(100vh - 100px);
+}
+
+/* Season Now and Upcoming containers */
+.top-airing-container {
+    margin-bottom: 20px;
+}
+
+.top-airing-container,
+.season-upcoming-container {
+    background-color: white;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; 
+    padding-bottom: 5px;
+}
+
+/* Headers for the top airing and upcoming sections */
+.top-airing-header,
+.season-upcoming-header {
+    background-color: var(--primary); 
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 6px; 
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Individual Season Now/Top Item styling */
+.top-item {
+    display: flex;
+    align-items: center;
+    padding-left: 10px; 
     border-bottom: 1px solid #ddd;
     cursor: pointer;
-    height: 80px; /* You might adjust this height as needed */
+    height: 62px;
+    background-color: white; 
+    transition: background-color 0.1s ease, transform 0.1s ease;
 }
 
-/* Hover effect */
+/* Hover effect for top items */
 .top-item:hover {
-    background-color: #f5f5f5;
+    background-color: #eeeeee;
+    transition: background-color 0.1s ease, transform 0.1s ease;
+
 }
 
 /* Rank styling */
 .top-item .rank {
-    font-size: 1.3em;
+    font-size: 1em;
     font-weight: bold;
     color: #333;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
 }
 
 /* Image styling */
 .top-item img {
-    width: 50px; 
-    height: 70px; 
+    width: 45px;
+    height: 55px;
     object-fit: cover;
-    margin-right: 15px; 
-    margin-left: 15px; 
+    margin: 0 10px;
+    align-self: center;
 }
 
 /* Anime details container */
 .anime-details {
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    flex-grow: 1; /* Allow this to grow and take available space */
-    max-width: calc(100% - 120px); /* Leave space for the rank and image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    max-width: calc(100% - 120px);
 }
 
 /* Anime title styling */
 .anime-title {
-    font-size: 0.96em;
+    font-size: 0.9em;
     font-weight: bold;
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    margin: 0; /* Remove default margin */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
 }
 
 /* Anime details paragraph styling */
 .anime-details p {
     font-size: 0.8em;
     color: #666;
-    margin: 0; 
+    margin: 0;
 }
 
 /* "More" button styling */
 .more-btn {
     display: block;
     text-align: right;
-    font-size: 14px;
-    color: #007bff;
+    font-size: 0.9em;
+    color: var(--primary);
     text-decoration: none;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-right: 15px;
 }
 
 .more-btn:hover {
     text-decoration: underline;
 }
-/* Season Upcoming container styling */
-.season-upcoming-container {
-    background-color: white;
-    padding-bottom: 15px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
 
-/* Header for Season Upcoming */
-.season-upcoming-header {
-    background-color: #2e2e2e; 
-    color: white; 
-    padding: 10px; 
-    text-align: center; 
-}
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .main-container {
-        flex-direction: column;
+        flex-direction: column; /* Stack content on smaller screens */
     }
 
     .right-sidebar {
-        width: 100%;
-        margin-top: 20px;
+        width: 100%; /* Sidebar full width */
+        margin-top: 20px; /* Spacing above sidebar */
     }
 
-    .season-item {
-        flex-direction: column;
-        align-items: flex-start; /* Align items to the start */
-        height: auto; /* Allow height to adjust */
+    .season-now-container,
+    .most-popular-container {
+        flex-wrap: nowrap; /* Prevent wrapping */
+        overflow-x: scroll; /* Allow scrolling */
     }
 
-    .season-item img {
-        width: 100%; /* Full width for images on small screens */
-        height: auto; /* Auto height to maintain aspect ratio */
+    .season-item,
+    .popular-item {
+        flex-direction: column; /* Stack items vertically */
+        height: auto; /* Auto height */
+    }
+
+    .season-item img,
+    .popular-item img {
+        width: 100%; /* Full width images */
+        height: auto; /* Auto height */
         margin-right: 0; /* No right margin */
-        margin-bottom: 10px; /* Margin at the bottom */
+        margin-bottom: 10px; /* Space below images */
+    }
+
+    .top-item {
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .top-item img {
+        width: 35px; /* Adjusted image size */
+        height: 45px; /* Adjusted image size */
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+    .season-item,
+    .popular-item {
+        width: 90%; /* More width on smaller screens */
+    }
+
+    h3 {
+        font-size: 1em; /* Smaller font size for very small screens */
     }
 }

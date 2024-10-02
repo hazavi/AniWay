@@ -1,35 +1,38 @@
-async function fetchSeasonNow() {
-    const URL = 'https://api.jikan.moe/v4/seasons/now';
+async function fetchMostPopular() {
+    const URL = 'https://api.jikan.moe/v4/top/anime?filter=bypopularity';
 
     try {
         const response = await fetch(URL);
         const result = await response.json();
-        displaySeasonNow(result);
+        displayMostPopular(result);
     } catch (error) {
         console.error(error);
     }
 }
 
-function displaySeasonNow(result) {
-    const container = document.querySelector('.season-now-container');
+function displayMostPopular(result) {
+    const container = document.querySelector('.most-popular-container');
+    
+    if (!container) {
+        console.error('Most Popular container not found');
+        return;
+    }
+
     container.innerHTML = ''; // Clear previous content
 
-    // Limit to displaying 5 anime
     result.data.forEach(anime => {
         const animeElement = document.createElement('div');
-        animeElement.classList.add('season-item');
+        animeElement.classList.add('popular-item');
 
         // Add anime title and image
         const animeImage = document.createElement('img');
         animeImage.src = anime.images.jpg.image_url;
         animeImage.alt = anime.title;
-        animeImage.title = anime.title;
         animeElement.appendChild(animeImage);
 
         const animeTitle = document.createElement('div');
-        animeTitle.classList.add('season-item-title');
+        animeTitle.classList.add('popular-item-title');
         animeTitle.textContent = anime.title;
-        animeTitle.title = anime.title;
         animeElement.appendChild(animeTitle);
 
         container.appendChild(animeElement);
@@ -37,17 +40,17 @@ function displaySeasonNow(result) {
 }
 
 
-fetchSeasonNow();
+fetchMostPopular();
 
-document.querySelector('.season-left').addEventListener('click', () => {
-    document.querySelector('.season-now-container').scrollBy({
+document.querySelector('.popular-left').addEventListener('click', () => {
+    document.querySelector('.most-popular-container').scrollBy({
         left: -300,
         behavior: 'smooth'
     });
 });
 
-document.querySelector('.season-right').addEventListener('click', () => {
-    document.querySelector('.season-now-container').scrollBy({
+document.querySelector('.popular-right').addEventListener('click', () => {
+    document.querySelector('.most-popular-container').scrollBy({
         left: 300,
         behavior: 'smooth'
     });

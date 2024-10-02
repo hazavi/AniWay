@@ -1,3 +1,8 @@
+:root{
+    --heading-color: #2e2e2e;
+    --background-color: #ffffff; 
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f9f9f9; 
@@ -6,12 +11,11 @@ body {
 }
 
 
-
 /* Main container for Season Now */
 .top-airing-container {
     max-width: 1200px;
     margin: 0 auto; 
-    background-color: #ffffff; 
+    background-color: var(--background-color); 
     border: 1px solid #e0e0e0; 
     border-radius: 5px; 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
@@ -20,7 +24,7 @@ body {
 
 /* Header for Season Now */
 .top-airing-header {
-    background-color: #2e2e2e; 
+    background-color: var(--heading-color); 
     color: white; 
     padding: 15px; 
     font-size: 1.2em; 

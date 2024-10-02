@@ -12,18 +12,27 @@
     <div class="main-container">
         <!-- Main content container -->
         <div class="main-content">
-            <h2>Season Now</h2>
-            <!-- Horizontal scrollable schedules container -->
+            <h3 class="header">Season Now <a href="/AniWay/Season-Now.html" class="more-btn" style="font-size: 0.7em; font-weight: bold;">more</a></h3>
             <div class="scroll-controls">
-                <div class="scroll-left"><</div>
-                <div class="season-now-container">
-                    <!-- Your scrollable items here -->
+                <div class="season-left" >
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
+                 </div>
+                <div class="season-now-container"></div>
+                <div class="season-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
                 </div>
-                <div class="scroll-right">></div>
             </div>
 
-            <div class="display-container"></div>
-
+            <h3 class="header">Most Popular <a href="/AniWay/Most-Popular.html" class="more-btn" style="font-size: 0.7em; font-weight: bold;">more</a></h3>
+            <div class="scroll-controls">
+                <div class="popular-left">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
+                </div>
+                <div class="most-popular-container"></div>
+                <div class="popular-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
+                </div>
+            </div>
         </div>
 
         <!-- Right sidebar container -->
@@ -35,8 +44,8 @@
 
     <script src="/navbar/navbarLoader.js"></script>
     <script src="/APIs/SeasonNow.js"></script>
+    <script src="/APIs/MostPopular.js"></script>
+    <script src="/APIs/SideBarTopAiring.js"></script>       
     <script src="/APIs/SidebarSeasonUpcoming.js"></script>
-    <script src="/APIs/AnimeRecommendations.js"></script>
-    <script src="/APIs/SideBarTopAiring.js"> </script>    
 </body>
 </html>
