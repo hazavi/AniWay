@@ -1,0 +1,75 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar {
+    margin-bottom: 20px;
+}
+
+/* Main container for Season Now */
+.season-now-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+/* Header for Season Now */
+.season-now-header {
+    text-align: center;
+    color: #333;
+    padding: 15px;
+    font-size: 1.8em;
+    font-weight: bold;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 20px;
+}
+
+/* Grid styling */
+.season-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* Individual Season Item */
+.season-item {
+    transition: transform 0.2s ease-in;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+}
+
+.season-item:hover {
+    transform: translateY(-2px);
+}
+
+/* Anime image styling */
+.season-item img {
+    width: 80%;
+    height: 260px;
+    object-fit: cover;
+    border-bottom: 2px solid #eaeaea;
+    transition: transform 0.3s ease;
+}
+
+.season-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Anime title styling */
+.season-item-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin: 15px 0;
+    padding: 0 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
