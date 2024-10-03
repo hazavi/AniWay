@@ -8,9 +8,54 @@ body {
     padding: 20px;
 }
 
-h1{
-    margin-top: 20px;
+#page-title {
+    margin-top: 10px;
+    text-align: center;
+
 }
+
+/* Sub-navigation styles */
+.sub-nav {
+    background-color: transparent;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    margin-top: 60px;
+    position: relative; /* Ensure it layers below the navbar */
+    z-index: 0; /* Lower z-index to ensure it appears behind the navbar */
+    box-shadow: none; /* Remove box shadow */
+    border-bottom: 1px solid var(--primary); /* Underline for emphasis */
+
+
+}
+
+.sub-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sub-nav li {
+    margin: 5px;
+}
+
+.sub-nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 0.85em;
+}
+
+.sub-nav a:hover,
+.sub-nav a.active {
+    background-color: #a659fd;
+    color: white;
+}
+
 /* Anime container styling */
 .anime-container {
     display: flex;
@@ -18,7 +63,6 @@ h1{
     gap: 20px;
     justify-content: center;
     margin-top: 20px;
-
 }
 
 .anime-item {
@@ -28,7 +72,6 @@ h1{
     cursor: pointer;
     transition: transform 0.3s;
     margin-bottom: 10px;
-
 }
 
 .anime-item:hover {
@@ -42,7 +85,7 @@ h1{
     left: 10px;
     background-color: #e74c3c;
     color: #fff;
-    padding: 10px 10px;
+    padding: 10px;
     border-radius: 10px;
     font-size: 1rem;
     font-weight: bold;
@@ -85,6 +128,7 @@ h1{
     border-radius: 4px;
     z-index: 10;
 }
+
 .custom-tooltip {
     position: absolute;
     background: rgba(0, 0, 0, 0.8);
@@ -98,13 +142,14 @@ h1{
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust to center */
 }
+
 /* Popup styling */
 .anime-popup {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 400px;
+    height: 350px;
     background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
     color: white;
     padding: 20px;
@@ -114,7 +159,6 @@ h1{
     opacity: 0; /* Initially hidden */
     transition: opacity 0.7s ease; /* Smoother and slower fade-in effect */
     font-size: 0.85rem;
-    z-index: 1;
 }
 
 /* Popup content */
@@ -123,12 +167,11 @@ h1{
     line-height: 1.4;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 5; /* Limit to 3 lines */
+    -webkit-line-clamp: 5; /* Limit to 5 lines */
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
-    white-space: normal; /* Ensures ellipsis appear after 3 lines */
+    white-space: normal; /* Ensures ellipsis appear after 5 lines */
 }
-
 
 /* Hover effect: Fade-in popup */
 .anime-item:hover .anime-popup {
@@ -137,10 +180,15 @@ h1{
 
 /* Pagination styles */
 .pagination {
-    display: inline-block;
+    display: flex;
+    justify-content: center; /* Center pagination */
     margin-top: 30px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.pagination-ellipsis {
+    align-self: center; /* Center it vertically with the buttons */
+    margin: 0 10px; /* Add some space on the sides */
+    font-size: 1.2em; /* Adjust font size if needed */
 }
 
 .pagination button {
@@ -162,164 +210,92 @@ h1{
 }
 
 /* Responsive design */
-
 @media (max-width: 1400px) {
     .anime-item {
-        width: calc(23% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 350px;
-
+        width: calc(23% - 20px);
     }
 }
 
 @media (max-width: 1200px) {
     .anime-item {
-        width: calc(23% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 340px;
-
+        width: calc(23% - 20px);
     }
 }
+
 @media (max-width: 1145px) {
     .anime-item {
-        width: calc(25% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 330px;
-
+        width: calc(25% - 20px);
     }
 }
 
 @media (max-width: 1124px) {
     .anime-item {
-        width: calc(26% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 330px;
-
+        width: calc(26% - 20px);
     }
 }
+
 @media (max-width: 1040px) {
     .anime-item {
-        width: calc(27% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 320px;
-
+        width: calc(27% - 20px);
     }
 }
 
 @media (max-width: 999px) {
     .anime-item {
-        width: calc(28% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 320px;
-
+        width: calc(28% - 20px);
     }
 }
 
 @media (max-width: 927px) {
     .anime-item {
-        width: calc(30% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 310px;
-
+        width: calc(30% - 20px);
     }
 }
 
 @media (max-width: 895px) {
     .anime-item {
-        width: calc(32% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 310px;
-
+        width: calc(32% - 20px);
     }
 }
 
 @media (max-width: 810px) {
     .anime-item {
-        width: calc(33% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 310px;
-
+        width: calc(33% - 20px);
     }
 }
 
 @media (max-width: 767px) {
     .anime-item {
-        width: calc(33% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 280px;
-
+        width: calc(33% - 20px);
     }
 }
 
 @media (max-width: 690px) {
     .anime-item {
-        width: calc(45% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 330px;
-
+        width: calc(45% - 20px);
     }
 }
+
 @media (max-width: 544px) {
     .anime-item {
-        width: calc(40% - 30px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 340px;
-
+        width: calc(40% - 30px);
     }
 }
+
 @media (max-width: 575px) {
     .anime-item {
-        width: calc(50% - 20px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 340px;
-
+        width: calc(50% - 20px);
     }
 }
+
 @media (max-width: 545px) {
     .anime-item {
-        width: calc(40% - 0px); 
-    }
-    .anime-item img {
-        width: 100%;
-        height: 300px;
-
+        width: calc(40% - 0px);
     }
 }
 
 @media (max-width: 400px) {
     .anime-item {
-        width: calc(60% - 10px); 
-    }
-
-    .anime-item img {
-        width: 100%;
-        height: 400px;
-
+        width: calc(60% - 10px);
     }
 }

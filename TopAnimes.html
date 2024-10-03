@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Styles/topanimes.css">
+    <title>Top Animes</title>
+</head>
+<body>
+    <div id="navbar"></div>
+    
+    <nav class="sub-nav">
+        <ul>
+            <li><a href="#" class="active">Top Anime</a></li>
+            <li><a href="#top-airing" data-param="filter" data-value="airing">Top Airing</a></li>
+            <li><a href="#top-upcoming" data-param="filter" data-value="upcoming">Top Upcoming</a></li>
+            <li><a href="#top-tv-series" data-param="type" data-value="tv">Top TV Series</a></li>
+            <li><a href="#top-movies" data-param="type" data-value="movie">Top Movies</a></li>
+            <li><a href="#top-ovas" data-param="type" data-value="ova">Top OVAs</a></li>
+            <li><a href="#top-onas" data-param="type" data-value="ona">Top ONAs</a></li>
+            <li><a href="#top-specials" data-param="type" data-value="special">Top Specials</a></li>
+            <li><a href="#most-popular" data-param="filter" data-value="bypopularity">Most Popular</a></li>
+            <li><a href="#most-favorited" data-param="filter" data-value="favorite">Most Favorited</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1 id="page-title">Top Anime</h1>
+        
+        <div class="anime-container"></div>
+        
+        <div class="pagination"></div>
+    </main>
+    
+    <script src="/navbar/navbarLoader.js"></script>
+    <script src="/APIs/TopAnimes.js"></script>
+    <script>
+        // Ensure scripts run after the DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchTopAnimes(1); // Initial fetch for default results
+        });
+    </script>
+</body>
+</html>

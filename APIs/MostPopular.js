@@ -24,6 +24,11 @@ function displayMostPopular(result) {
         const animeElement = document.createElement('div');
         animeElement.classList.add('popular-item');
 
+        // redirects to anime info page
+        animeElement.addEventListener('click', () => {
+            window.location.href = `AnimeInfo.html?id=${anime.mal_id}`;
+        });
+        
         // Add anime title and image
         const animeImage = document.createElement('img');
         animeImage.src = anime.images.jpg.image_url;

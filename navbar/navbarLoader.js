@@ -1,4 +1,4 @@
-function loadNavbar() {
+function loadSubNavbar() {
     fetch('/navbar/navbar.html') // Adjust this path to where you saved navbar.html
         .then(response => response.text())
         .then(data => {
@@ -8,4 +8,4 @@ function loadNavbar() {
 }
 
 // Load the navbar when the window loads
-window.onload = loadNavbar;
+window.onload = loadSubNavbar;
