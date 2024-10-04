@@ -41,7 +41,7 @@ function displayResults(items, type) {
 
         // Redirect to the info page when clicked
         itemElement.addEventListener('click', () => {
-            window.location.href = `${type === 'anime' ? 'AnimeInfo' : 'MangaInfo'}.html?id=${item.mal_id}`;
+            window.location.href = `./${type === 'anime' ? 'AnimeInfo' : 'MangaInfo'}.html?id=${item.mal_id}`;
         });
 
         const image = document.createElement('img');
