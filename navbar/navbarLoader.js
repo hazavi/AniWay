@@ -1,5 +1,5 @@
 function loadSubNavbar() {
-    fetch('./navbar.html') // Adjust this path to where you saved navbar.html
+    fetch('./navbar/navbar.html') // Adjust this path to where you saved navbar.html
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
