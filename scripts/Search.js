@@ -2,7 +2,7 @@ function getSearchParamsFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
     return {
         query: urlParams.get('query'),
-        type: urlParams.get('type') || 'anime' // Default to anime
+        type: urlParams.get('type') || 'anime' 
     };
 }
 

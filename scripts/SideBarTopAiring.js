@@ -68,7 +68,7 @@ function displayTopAiring(animeList) {
 
     // Add the "More" button to redirect to the full Season Now page
     const moreButton = document.createElement('a');
-    moreButton.href = '/TopAnimes.html#page=1&filter=airing'; 
+    moreButton.href = './TopAnimes.html#page=1&filter=airing'; 
     moreButton.textContent = 'More';
     moreButton.classList.add('more-btn');
     container.appendChild(moreButton);

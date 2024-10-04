@@ -66,7 +66,7 @@ function displaySeasonUpcoming(animeList) {
 
     // Add the "More" button to redirect to the full Season Upcoming page
     const moreButton = document.createElement('a');
-    moreButton.href = '/TopAnimes.html#page=1&filter=upcoming'; // Change to actual Season Upcoming page URL
+    moreButton.href = './TopAnimes.html#page=1&filter=upcoming'; // Change to actual Season Upcoming page URL
     moreButton.textContent = 'More';
     moreButton.classList.add('more-btn');
     container.appendChild(moreButton);
