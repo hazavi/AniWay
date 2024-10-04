@@ -312,7 +312,10 @@ body {
         flex-wrap: nowrap; /* Prevent wrapping */
         overflow-x: scroll; /* Allow scrolling */
     }
-
+    .header {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
     .season-item,
     .popular-item {
         flex-direction: column; /* Stack items vertically */
@@ -328,12 +331,12 @@ body {
     }
 
     .top-item {
-        height: auto; /* Allow height to adjust based on content */
+        height: 65px; /* Allow height to adjust based on content */
     }
 
     .top-item img {
-        width: 35px; /* Adjusted image size */
-        height: 45px; /* Adjusted image size */
+        width: 40px; /* Adjusted image size */
+        height: 50px; /* Adjusted image size */
     }
 }
 
