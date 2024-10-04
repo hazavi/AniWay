@@ -297,8 +297,8 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-    .main-container {
+@media screen and (max-width: 768px) {
+        .main-container {
         flex-direction: column; /* Stack content on smaller screens */
     }
 
@@ -322,7 +322,7 @@ body {
     .season-item img,
     .popular-item img {
         width: 100%; /* Full width images */
-        height: auto; /* Auto height */
+        height: 350px; /* Auto height */
         margin-right: 0; /* No right margin */
         margin-bottom: 10px; /* Space below images */
     }
