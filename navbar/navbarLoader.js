@@ -20,12 +20,27 @@ function initResponsiveNavbar() {
     }
 
     dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('click', (e) => {
+        const dropbtn = dropdown.querySelector('.dropbtn');
+        dropbtn.addEventListener('click', (e) => {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
                 dropdown.classList.toggle('active');
+                // Close other open dropdowns
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove('active');
+                    }
+                });
             }
         });
+    });
+
+    // Close mobile menu and dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !menuIcon.contains(e.target)) {
+            navLinks.classList.remove('show');
+            dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+        }
     });
 
     window.addEventListener('resize', () => {

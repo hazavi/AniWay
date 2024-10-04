@@ -1,3 +1,6 @@
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 async function fetchTopAiring() {
     const URL = 'https://api.jikan.moe/v4/top/anime?filter=airing';
 
