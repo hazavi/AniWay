@@ -7,7 +7,6 @@ async function fetchTopMangas(page = 1) {
     try {
         const response = await fetch(`${URL}?page=${page}&limit=${perMangaPage}`);
         const result = await response.json();
-        console.log(result.data);
         displayTopMangas(result);
         setupMangaPagination(result.pagination);
     } catch (error) {
