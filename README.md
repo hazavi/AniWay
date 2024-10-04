@@ -7,7 +7,6 @@ Welcome to **AniWay**! This website is all about exploring **Animes** and **Mang
 - **Top Animes & Mangas**: See the top-rated anime and manga lists.
 - **Detailed Info Pages**: Click on any anime or manga to get more information.
 - **Search**: Easily find your favorite anime or manga.
-- **Anime Schedule**: Stay updated with the latest anime releases.
 - **Pagination**: Browse through the lists with smooth navigation.
 - **Responsive Design**: The website works well on both desktop and mobile devices.
   
@@ -36,10 +35,10 @@ To run this project locally:
 
 ## How to Use
 
-1. **Home Page**: Start by browsing the top animes and mangas.
+1. **Home Page**: Start by browsing the animes.
 2. **Search**: Use the search bar to quickly find specific titles.
-3. **Anime/Manga Info**: Click on any title for detailed information, including synopsis, genres, and more.
-4. **Schedule**: Check the anime schedule to know what’s coming next.
+3. **Top**: Browse the top animes and mangas lists.
+4. **Anime/Manga Info**: Click on any title for detailed information, including synopsis, genres, and more.
 
 ## Contribution
 
