@@ -19,26 +19,29 @@ body {
     background-color: transparent;
     padding: 10px 0;
     margin-bottom: 20px;
-    margin-top: 60px;
-    position: relative; /* Ensure it layers below the navbar */
-    z-index: 0; /* Lower z-index to ensure it appears behind the navbar */
-    box-shadow: none; /* Remove box shadow */
-    border-bottom: 1px solid var(--primary); /* Underline for emphasis */
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    box-shadow: none;
+    border-bottom: 1px solid var(--primary);
 
-
+    
 }
 
 .sub-nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: inline-flex;
+    flex-wrap: nowrap;
 }
 
 .sub-nav li {
-    margin: 5px;
+    display: inline-block;
+    margin: 0 5px;
 }
 
 .sub-nav a {
@@ -48,12 +51,24 @@ body {
     border-radius: 20px;
     transition: background-color 0.3s, color 0.3s;
     font-size: 0.85em;
+    display: inline-block;
 }
 
 .sub-nav a:hover,
 .sub-nav a.active {
     background-color: #a659fd;
     color: white;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sub-nav::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.sub-nav {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 /* Anime container styling */
@@ -207,6 +222,25 @@ body {
 .pagination .active {
     background-color: #a659fd;
     font-weight: bolder;
+}
+
+/* Responsive design for sub-nav */
+@media screen and (max-width: 768px) {
+    .sub-nav {
+        padding: 5px 0;
+    }
+
+    .sub-nav a {
+        padding: 6px 10px;
+        font-size: 0.75em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sub-nav a {
+        padding: 5px 8px;
+        font-size: 0.7em;
+    }
 }
 
 /* Responsive design */
