@@ -129,12 +129,18 @@ h1{
     opacity: 1;
 }
 
-/* Pagination styles */
+/* Existing pagination styles */
 .pagination {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     margin-top: 30px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-ellipsis {
+    align-self: center;
+    margin: 0 10px;
+    font-size: 1.2em;
 }
 
 .pagination button {
@@ -153,6 +159,47 @@ h1{
 .pagination .active {
     background-color: #a659fd;
     font-weight: bolder;
+}
+
+/* New responsive styles for pagination */
+@media screen and (max-width: 768px) {
+    .pagination {
+        flex-wrap: wrap;
+    }
+
+    .pagination button {
+        padding: 12px 16px;
+        font-size: 0.9em;
+    }
+
+    .pagination-ellipsis {
+        font-size: 1em;
+        margin: 0 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pagination button {
+        padding: 10px 14px;
+        font-size: 0.8em;
+    }
+
+    .pagination-ellipsis {
+        font-size: 0.9em;
+        margin: 0 3px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .pagination button {
+        padding: 8px 12px;
+        font-size: 0.7em;
+    }
+
+    .pagination-ellipsis {
+        font-size: 0.8em;
+        margin: 0 2px;
+    }
 }
 
 /* Responsive design adjustments */
