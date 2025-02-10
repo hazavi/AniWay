@@ -16,5 +16,8 @@
   },
   "homepage": "https://github.com/hazavi/AniWay#readme",
   "keywords": [],
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.7.4"
+  }
 }
