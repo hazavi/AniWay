@@ -1,349 +1,378 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: white;
-    color: #333;
-    margin: 0;
-    padding: 20px;
+  font-family: "Montserrat", sans-serif;
+  background-color: white;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #750090;
+}
+
+.loading-spinner .dot {
+  animation: dots 1.5s infinite;
+}
+
+.loading-spinner .dot:nth-child(1) {
+  animation-delay: 0s;
+}
+.loading-spinner .dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.loading-spinner .dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes dots {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 #page-title {
-    margin-top: 10px;
-    text-align: center;
-
+  margin-top: 10px;
+  text-align: center;
 }
 
 /* Sub-navigation styles */
 .sub-nav {
-    background-color: transparent;
-    padding: 10px 0;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
-    box-shadow: none;
-    border-bottom: 1px solid var(--primary);
-
-    
+  background-color: transparent;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  box-shadow: none;
+  border-bottom: 1px solid var(--primary);
 }
 
 .sub-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: inline-flex;
-    flex-wrap: nowrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  flex-wrap: nowrap;
 }
 
 .sub-nav li {
-    display: inline-block;
-    margin: 0 5px;
+  display: inline-block;
+  margin: 0 5px;
 }
 
 .sub-nav a {
-    text-decoration: none;
-    color: #333;
-    padding: 8px 12px;
-    border-radius: 20px;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 0.85em;
-    display: inline-block;
+  text-decoration: none;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 0.85em;
+  display: inline-block;
 }
 
 .sub-nav a:hover,
 .sub-nav a.active {
-    background-color: #a659fd;
-    color: white;
+  background-color: #a659fd;
+  color: white;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .sub-nav::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .sub-nav {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* Anime container styling */
 .anime-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .anime-item {
-    position: relative;
-    width: calc(20% - 10px); /* Default for larger screens */
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s;
-    margin-bottom: 10px;
+  position: relative;
+  width: calc(20% - 10px); /* Default for larger screens */
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+  margin-bottom: 10px;
 }
 
 .anime-item:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 /* Rank box */
 .anime-rank {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #e74c3c;
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: bold;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 /* Image styling - all images same height */
 .anime-item img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
 }
 
 /* Title styling - truncated with ellipsis */
 .anime-item h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 10px;
 }
 
 /* Tooltip for full title */
 .anime-item h2[title] {
-    position: relative;
+  position: relative;
 }
 
 .anime-item h2[title]:hover::after {
-    content: attr(title);
-    position: absolute;
-    top: 20px;
-    left: 0;
-    width: 180px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 5px;
-    font-size: 0.85rem;
-    white-space: normal;
-    border-radius: 4px;
-    z-index: 10;
+  content: attr(title);
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 180px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 5px;
+  font-size: 0.85rem;
+  white-space: normal;
+  border-radius: 4px;
+  z-index: 10;
 }
 
 .custom-tooltip {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 5px;
-    border-radius: 4px;
-    z-index: 10;
-    white-space: nowrap;
-    display: none; /* Initially hidden */
-    bottom: 100%; /* Position above the image */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust to center */
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  z-index: 10;
+  white-space: nowrap;
+  display: none; /* Initially hidden */
+  bottom: 100%; /* Position above the image */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust to center */
 }
 
 /* Popup styling */
 .anime-popup {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 350px;
-    background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    justify-content: flex-end; /* Align content at the bottom */
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.7s ease; /* Smoother and slower fade-in effect */
-    font-size: 0.85rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 350px;
+  background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  justify-content: flex-end; /* Align content at the bottom */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.7s ease; /* Smoother and slower fade-in effect */
+  font-size: 0.85rem;
 }
 
 /* Popup content */
 .anime-popup p {
-    margin: 10px 0;
-    line-height: 1.4;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 5; /* Limit to 5 lines */
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    white-space: normal; /* Ensures ellipsis appear after 5 lines */
+  margin: 10px 0;
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Limit to 5 lines */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal; /* Ensures ellipsis appear after 5 lines */
 }
 
 /* Hover effect: Fade-in popup */
 .anime-item:hover .anime-popup {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* Existing pagination styles */
 .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .pagination-ellipsis {
-    align-self: center;
-    margin: 0 10px;
-    font-size: 1.2em;
+  align-self: center;
+  margin: 0 10px;
+  font-size: 1.2em;
 }
 
 .pagination button {
-    color: #000;
-    border: none;
-    padding: 15px 20px;
-    cursor: pointer;
-    font-size: 1em;
+  color: #000;
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 1em;
 }
 
 .pagination button:hover {
-    background-color: #a659fd;
-    color: #000;
+  background-color: #a659fd;
+  color: #000;
 }
 
 .pagination .active {
-    background-color: #a659fd;
-    font-weight: bolder;
+  background-color: #a659fd;
+  font-weight: bolder;
 }
 
 /* New responsive styles for pagination */
 @media screen and (max-width: 768px) {
-    .pagination {
-        flex-wrap: wrap;
-    }
+  .pagination {
+    flex-wrap: wrap;
+  }
 
-    .pagination button {
-        padding: 12px 16px;
-        font-size: 0.9em;
-    }
+  .pagination button {
+    padding: 12px 16px;
+    font-size: 0.9em;
+  }
 
-    .pagination-ellipsis {
-        font-size: 1em;
-        margin: 0 5px;
-    }
+  .pagination-ellipsis {
+    font-size: 1em;
+    margin: 0 5px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .pagination button {
-        padding: 10px 14px;
-        font-size: 0.8em;
-    }
+  .pagination button {
+    padding: 10px 14px;
+    font-size: 0.8em;
+  }
 
-    .pagination-ellipsis {
-        font-size: 0.9em;
-        margin: 0 3px;
-    }
+  .pagination-ellipsis {
+    font-size: 0.9em;
+    margin: 0 3px;
+  }
 }
 
 @media screen and (max-width: 320px) {
-    .pagination button {
-        padding: 8px 12px;
-        font-size: 0.7em;
-    }
+  .pagination button {
+    padding: 8px 12px;
+    font-size: 0.7em;
+  }
 
-    .pagination-ellipsis {
-        font-size: 0.8em;
-        margin: 0 2px;
-    }
+  .pagination-ellipsis {
+    font-size: 0.8em;
+    margin: 0 2px;
+  }
 }
 
 /* Responsive design for sub-nav */
 @media screen and (max-width: 768px) {
-    .sub-nav {
-        padding: 5px 0;
-    }
+  .sub-nav {
+    padding: 5px 0;
+  }
 
-    .sub-nav a {
-        padding: 6px 10px;
-        font-size: 0.75em;
-    }
+  .sub-nav a {
+    padding: 6px 10px;
+    font-size: 0.75em;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .sub-nav a {
-        padding: 5px 8px;
-        font-size: 0.7em;
-    }
+  .sub-nav a {
+    padding: 5px 8px;
+    font-size: 0.7em;
+  }
 }
 
 /* Responsive design */
 @media (max-width: 1400px) {
-    .anime-item {
-        width: calc(23% - 20px);
-    }
+  .anime-item {
+    width: calc(23% - 20px);
+  }
 }
 
 @media (max-width: 1200px) {
-    .anime-item {
-        width: calc(23% - 20px);
-    }
+  .anime-item {
+    width: calc(23% - 20px);
+  }
 }
 
 @media (max-width: 1145px) {
-    .anime-item {
-        width: calc(25% - 20px);
-    }
+  .anime-item {
+    width: calc(25% - 20px);
+  }
 }
 
 @media (max-width: 1124px) {
-    .anime-item {
-        width: calc(26% - 20px);
-    }
+  .anime-item {
+    width: calc(26% - 20px);
+  }
 }
 
 @media (max-width: 1040px) {
-    .anime-item {
-        width: calc(27% - 20px);
-    }
+  .anime-item {
+    width: calc(27% - 20px);
+  }
 }
 
 @media (max-width: 999px) {
-    .anime-item {
-        width: calc(28% - 20px);
-    }
+  .anime-item {
+    width: calc(28% - 20px);
+  }
 }
 
 @media (max-width: 927px) {
-    .anime-item {
-        width: calc(30% - 20px);
-    }
+  .anime-item {
+    width: calc(30% - 20px);
+  }
 }
 
 @media (max-width: 895px) {
-    .anime-item {
-        width: calc(32% - 20px);
-    }
+  .anime-item {
+    width: calc(32% - 20px);
+  }
 }
 
 @media (max-width: 810px) {
-    .anime-item {
-        width: calc(33% - 20px);
-    }
+  .anime-item {
+    width: calc(33% - 20px);
+  }
 }
 @media screen and (max-width: 768px) {
-    .anime-item {
-        width: calc(55% - 20px);
-    }
-
-    
+  .anime-item {
+    width: calc(55% - 20px);
+  }
 }
-

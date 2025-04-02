@@ -1,162 +1,175 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Updated font for a cleaner look */
-    background-color: #f4f4f4;
-    padding: 20px;
-    overflow-x: hidden;
+  font-family: "Helvetica Neue", Arial, sans-serif; /* Updated font for a cleaner look */
+  background-color: #f4f4f4;
+  padding: 20px;
+  overflow-x: hidden;
+}
+.loading,
+.error {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.loading {
+  color: gray;
+}
+
+.error {
+  color: red;
 }
 
 /* Main container to hold the content and sidebar */
 .main-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    max-width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  margin-top: 20px;
 }
 
 /* Main content area styling */
 .main-content {
-    flex: 1;
-    padding: 5px;
-    overflow-x: hidden;
+  flex: 1;
+  padding: 5px;
+  overflow-x: hidden;
 }
 
 /* Section headers */
 .header {
-    font-weight: bolder; /* Lighter boldness for a smoother appearance */
-    margin-bottom: 15px; /* Add more space below headers for better separation */
-    color: #333; /* Darker color for better readability */
-    text-transform: uppercase; /* Make headers stand out */
-    letter-spacing: 1px; /* Add spacing between letters for a modern look */
-    border-bottom: 2px solid var(--primary); /* Underline for emphasis */
-    padding-bottom: 5px; /* Space between text and underline */
-    display: flex; /* Flex display for alignment */
-    justify-content: space-between; /* Space out items */
+  font-weight: bolder; /* Lighter boldness for a smoother appearance */
+  margin-bottom: 15px; /* Add more space below headers for better separation */
+  color: #333; /* Darker color for better readability */
+  text-transform: uppercase; /* Make headers stand out */
+  letter-spacing: 1px; /* Add spacing between letters for a modern look */
+  border-bottom: 2px solid var(--primary); /* Underline for emphasis */
+  padding-bottom: 5px; /* Space between text and underline */
+  display: flex; /* Flex display for alignment */
+  justify-content: space-between; /* Space out items */
 }
 
 /* "More" button styling */
 .more-btn {
-    display: block;
-    text-align: right;
-    color: var(--primary);
-    text-decoration: none;
-    margin-top: 5px;
-    margin-right: 15px;
+  display: block;
+  text-align: right;
+  color: var(--primary);
+  text-decoration: none;
+  margin-top: 5px;
+  margin-right: 15px;
 }
 
 .more-btn:hover {
-    text-decoration: underline;
-    cursor: pointer;
+  text-decoration: underline;
+  cursor: pointer;
 }
-
-
 
 /* Schedule containers */
 .season-now-container,
 .most-popular-container {
-    display: flex;
-    gap: 25px;
-    padding: 10px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    max-width: 100%;
-    white-space: nowrap; /* Prevent items from wrapping */
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  display: flex;
+  gap: 25px;
+  padding: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  max-width: 100%;
+  white-space: nowrap; /* Prevent items from wrapping */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 /* Hide scrollbar */
 .season-now-container::-webkit-scrollbar,
 .most-popular-container::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+  display: none; /* Safari and Chrome */
 }
 
 /* Individual Season/Popular item styling */
 .season-item,
 .popular-item {
-    width: 180px;
-    flex: 0 0 auto; /* Prevent items from shrinking */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
-    text-align: center;
+  width: 180px;
+  flex: 0 0 auto; /* Prevent items from shrinking */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
+  text-align: center;
 }
 
 /* Hover effect */
 .season-item:hover,
 .popular-item:hover {
-    transform: scale(1.05);
-    cursor: pointer;
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 /* Image styling */
 .season-item img,
 .popular-item img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
 }
 
 /* Title container */
 .season-item-title,
 .popular-item-title {
-    width: 100%;
-    font-size: 1em;
-    font-weight: bold;
-    color: #333;
-    margin-top: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 100%;
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Scroll control buttons */
 .scroll-controls {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-bottom: 20px; 
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .season-left,
 .season-right,
 .popular-left,
 .popular-right {
-    background-color: rgba(39, 39, 39, 0.9);
-    color: white;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 10;
+  background-color: rgba(39, 39, 39, 0.9);
+  color: white;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
 }
 
 /* Left and Right control positioning */
 .season-left,
 .popular-left {
-    left: 0;
+  left: 0;
 }
 .season-left svg,
 .popular-left svg {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 .season-right,
 .popular-right {
-    right: 0;
+  right: 0;
 }
 
 /* Hover effect for scroll controls */
@@ -164,9 +177,9 @@ body {
 .season-right:hover,
 .popular-left:hover,
 .popular-right:hover {
-    background-color: rgba(39, 39, 39, 1);
-    transform: translateY(-50%) scale(1.2);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background-color: rgba(39, 39, 39, 1);
+  transform: translateY(-50%) scale(1.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Show scroll controls when the container is hovered */
@@ -174,7 +187,7 @@ body {
 .scroll-controls:hover .season-right,
 .scroll-controls:hover .popular-left,
 .scroll-controls:hover .popular-right {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* Active state (when clicked) */
@@ -182,172 +195,171 @@ body {
 .season-right:active,
 .popular-left:active,
 .popular-right:active {
-    transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%) scale(1.1);
 }
 
 /* Right sidebar styling */
 .right-sidebar {
-    width: 300px;
-    padding: 5px;
-    overflow-y: auto;
-    height: calc(100vh - 100px);
+  width: 300px;
+  padding: 5px;
+  overflow-y: auto;
+  height: calc(100vh - 100px);
 }
 
 /* Season Now and Upcoming containers */
 .top-airing-container {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .top-airing-container,
 .season-upcoming-container {
-    background-color: white;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px; 
-    padding-bottom: 5px;
+  background-color: white;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding-bottom: 5px;
 }
 
 /* Headers for the top airing and upcoming sections */
 .top-airing-header,
 .season-upcoming-header {
-    background-color: var(--primary); 
-    color: white;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 6px; 
-    text-align: center;
-    border-radius: 8px 8px 0 0;
+  background-color: var(--primary);
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 6px;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
 }
 
 /* Individual Season Now/Top Item styling */
 .top-item {
-    display: flex;
-    align-items: center;
-    padding-left: 10px; 
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-    height: 62px;
-    background-color: white; 
-    transition: background-color 0.1s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  height: 62px;
+  background-color: white;
+  transition: background-color 0.1s ease, transform 0.1s ease;
 }
 
 /* Hover effect for top items */
 .top-item:hover {
-    background-color: #eeeeee;
-    transition: background-color 0.1s ease, transform 0.1s ease;
-
+  background-color: #eeeeee;
+  transition: background-color 0.1s ease, transform 0.1s ease;
 }
 
 /* Rank styling */
 .top-item .rank {
-    font-size: 1em;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    padding: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  padding: 5px;
 }
 
 /* Image styling */
 .top-item img {
-    width: 45px;
-    height: 55px;
-    object-fit: cover;
-    margin: 0 10px;
-    align-self: center;
+  width: 45px;
+  height: 55px;
+  object-fit: cover;
+  margin: 0 10px;
+  align-self: center;
 }
 
 /* Anime details container */
 .anime-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-    max-width: calc(100% - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  max-width: calc(100% - 120px);
 }
 
 /* Anime title styling */
 .anime-title {
-    font-size: 0.9em;
-    font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 0;
+  font-size: 0.9em;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
 }
 
 /* Anime details paragraph styling */
 .anime-details p {
-    font-size: 0.8em;
-    color: #666;
-    margin: 0;
+  font-size: 0.8em;
+  color: #666;
+  margin: 0;
 }
 
 /* "More" button styling */
 .more-btn {
-    display: block;
-    text-align: right;
-    font-size: 0.9em;
-    color: var(--primary);
-    text-decoration: none;
-    margin-top: 5px;
-    margin-right: 15px;
+  display: block;
+  text-align: right;
+  font-size: 0.9em;
+  color: var(--primary);
+  text-decoration: none;
+  margin-top: 5px;
+  margin-right: 15px;
 }
 
 .more-btn:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
-        .main-container {
-        flex-direction: column; /* Stack content on smaller screens */
-    }
+  .main-container {
+    flex-direction: column; /* Stack content on smaller screens */
+  }
 
-    .right-sidebar {
-        width: 100%; /* Sidebar full width */
-        margin-top: 20px; /* Spacing above sidebar */
-    }
+  .right-sidebar {
+    width: 100%; /* Sidebar full width */
+    margin-top: 20px; /* Spacing above sidebar */
+  }
 
-    .season-now-container,
-    .most-popular-container {
-        flex-wrap: nowrap; /* Prevent wrapping */
-        overflow-x: scroll; /* Allow scrolling */
-    }
-    .header {
-        font-size: 1.2em;
-        margin-top: 10px;
-    }
-    .season-item,
-    .popular-item {
-        flex-direction: column; /* Stack items vertically */
-        height: auto; /* Auto height */
-    }
+  .season-now-container,
+  .most-popular-container {
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: scroll; /* Allow scrolling */
+  }
+  .header {
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
+  .season-item,
+  .popular-item {
+    flex-direction: column; /* Stack items vertically */
+    height: auto; /* Auto height */
+  }
 
-    .season-item img,
-    .popular-item img {
-        width: 100%; /* Full width images */
-        height: 350px; /* Auto height */
-        margin-right: 0; /* No right margin */
-        margin-bottom: 10px; /* Space below images */
-    }
+  .season-item img,
+  .popular-item img {
+    width: 100%; /* Full width images */
+    height: 350px; /* Auto height */
+    margin-right: 0; /* No right margin */
+    margin-bottom: 10px; /* Space below images */
+  }
 
-    .top-item {
-        height: 65px; /* Allow height to adjust based on content */
-    }
+  .top-item {
+    height: 65px; /* Allow height to adjust based on content */
+  }
 
-    .top-item img {
-        width: 40px; /* Adjusted image size */
-        height: 50px; /* Adjusted image size */
-    }
+  .top-item img {
+    width: 40px; /* Adjusted image size */
+    height: 50px; /* Adjusted image size */
+  }
 }
 
 /* Further adjustments for very small screens */
 @media (max-width: 480px) {
-    .season-item,
-    .popular-item {
-        width: 90%; /* More width on smaller screens */
-    }
+  .season-item,
+  .popular-item {
+    width: 90%; /* More width on smaller screens */
+  }
 
-    h3 {
-        font-size: 1em; /* Smaller font size for very small screens */
-    }
+  h3 {
+    font-size: 1em; /* Smaller font size for very small screens */
+  }
 }
